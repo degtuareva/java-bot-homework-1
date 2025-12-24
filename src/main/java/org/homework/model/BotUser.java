@@ -11,7 +11,15 @@ public class BotUser {
         this.firstName = firstName;
     }
 
-    public Long getTelegramId() { return telegramId; }
-    public String getUsername() { return username; }
-    public String getFirstName() { return firstName; }
+    public Long getTelegramId() {
+        return telegramId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
 }

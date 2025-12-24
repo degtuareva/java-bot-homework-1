@@ -111,8 +111,14 @@ public class CharacterData {
             this.url = url;
         }
 
-        public String getName() { return name; }
-        public String getUrl() { return url; }
+        public String getName() {
+            return name;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
         @Override
         public String toString() {
             return "Origin{" +
@@ -134,8 +140,13 @@ public class CharacterData {
             this.url = url;
         }
 
-        public String getName() { return name; }
-        public String getUrl() { return url; }
+        public String getName() {
+            return name;
+        }
+
+        public String getUrl() {
+            return url;
+        }
 
         @Override
         public String toString() {
@@ -145,6 +156,7 @@ public class CharacterData {
                     '}';
         }
     }
+
     @Override
     public String toString() {
         return "CharacterData{" +

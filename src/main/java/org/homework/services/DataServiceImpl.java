@@ -1,14 +1,14 @@
 package org.homework.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.homework.logger.Logger;
-import org.homework.model.BotUser;
-import org.homework.model.CharacterData;
-import org.homework.model.CharacterResponse;
 import org.homework.api.DataService;
 import org.homework.api.HttpService;
 import org.homework.di.annotations.Register;
 import org.homework.di.annotations.Resolve;
+import org.homework.logger.Logger;
+import org.homework.model.BotUser;
+import org.homework.model.CharacterData;
+import org.homework.model.CharacterResponse;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

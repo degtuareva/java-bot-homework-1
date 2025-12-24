@@ -11,7 +11,11 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 @Register
 public class CommandServiceImpl implements CommandService {
@@ -37,9 +41,9 @@ public class CommandServiceImpl implements CommandService {
 
     @Override
     public void registerUser(Long telegramId, String username, String firstName) {
-      logger.info("Регистрирую пользователя в CommandService: id=" + telegramId
-              + ", firstName=" + firstName + ", username=" + username);
-      users.putIfAbsent(telegramId,new BotUser(telegramId,username,firstName));
+        logger.info("Регистрирую пользователя в CommandService: id=" + telegramId
+                + ", firstName=" + firstName + ", username=" + username);
+        users.putIfAbsent(telegramId, new BotUser(telegramId, username, firstName));
     }
 
     @Override
@@ -284,23 +288,23 @@ public class CommandServiceImpl implements CommandService {
         SendMessage m = new SendMessage();
         m.setChatId(chatId);
         m.setText("""
-            🧱 Шпаргалка по SOLID:
+                🧱 Шпаргалка по SOLID:
 
-            S — Single Responsibility
-               Класс отвечает только за одну задачу.
+                S — Single Responsibility
+                   Класс отвечает только за одну задачу.
 
-            O — Open/Closed
-               Классы открыты для расширения, закрыты для изменения.
+                O — Open/Closed
+                   Классы открыты для расширения, закрыты для изменения.
 
-            L — Liskov Substitution
-               Объекты подкласса можно использовать вместо объектов базового класса.
+                L — Liskov Substitution
+                   Объекты подкласса можно использовать вместо объектов базового класса.
 
-            I — Interface Segregation
-               Лучше несколько маленьких интерфейсов, чем один жирный.
+                I — Interface Segregation
+                   Лучше несколько маленьких интерфейсов, чем один жирный.
 
-            D — Dependency Inversion
-               Зависим от абстракций, а не от конкретных реализаций.
-            """);
+                D — Dependency Inversion
+                   Зависим от абстракций, а не от конкретных реализаций.
+                """);
         return m;
     }
 
@@ -309,22 +313,22 @@ public class CommandServiceImpl implements CommandService {
         SendMessage m = new SendMessage();
         m.setChatId(chatId);
         m.setText("""
-            🧠 Основные принципы ООП:
+                🧠 Основные принципы ООП:
 
-            Инкапсуляция
-               • Скрываем внутреннее состояние.
-               • Доступ только через методы.
+                Инкапсуляция
+                   • Скрываем внутреннее состояние.
+                   • Доступ только через методы.
 
-            Наследование
-               • Класс может расширять другой класс (extends).
-               • Позволяет переиспользовать код.
+                Наследование
+                   • Класс может расширять другой класс (extends).
+                   • Позволяет переиспользовать код.
 
-            Полиморфизм
-               • Один интерфейс — много реализаций.
+                Полиморфизм
+                   • Один интерфейс — много реализаций.
 
-            Абстракция
-               • Выделяем главное, скрываем детали.
-            """);
+                Абстракция
+                   • Выделяем главное, скрываем детали.
+                """);
         return m;
     }
 
@@ -427,16 +431,16 @@ public class CommandServiceImpl implements CommandService {
         SendMessage m = new SendMessage();
         m.setChatId(chatId);
         m.setText("""
-            ❓ Вопрос по SOLID:
+                            ❓ Вопрос по SOLID:
 
-О каком принципе идёт речь: «Класс должен иметь только одну причину для изменения»?
+                О каком принципе идёт речь: «Класс должен иметь только одну причину для изменения»?
 
-a) Liskov Substitution
-b) Single Responsibility
-c) Interface Segregation
+                a) Liskov Substitution
+                b) Single Responsibility
+                c) Interface Segregation
 
-Ответь буквой: a, b или c.
-            """);
+                Ответь буквой: a, b или c.
+                            """);
         return m;
     }
 
@@ -449,16 +453,16 @@ c) Interface Segregation
         SendMessage m = new SendMessage();
         m.setChatId(chatId);
         m.setText("""
-            ❓ Вопрос по ООП:
+                            ❓ Вопрос по ООП:
 
-Какой принцип позволяет скрывать внутреннее состояние объекта и открывать только публичные методы?
+                Какой принцип позволяет скрывать внутреннее состояние объекта и открывать только публичные методы?
 
-a) Наследование
-b) Инкапсуляция
-c) Полиморфизм
+                a) Наследование
+                b) Инкапсуляция
+                c) Полиморфизм
 
-Ответь буквой: a, b или c.
-            """);
+                Ответь буквой: a, b или c.
+                            """);
         return m;
     }
 

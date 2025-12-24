@@ -9,4 +9,5 @@ import static java.lang.annotation.ElementType.FIELD;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(FIELD)
-public @interface Resolve {}
+public @interface Resolve {
+}

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface CommandService {
 
-    // Пользователи (лучше оставить только в DataService, но раз уже есть — пусть будет)
+    // Пользователи
     void registerUser(Long telegramId, String username, String firstName);
 
     List<BotUser> getRegisteredUsers();
@@ -58,4 +58,3 @@ public interface CommandService {
     // Неизвестная команда
     SendMessage getUnknownCommand(String chatId);
 }
-

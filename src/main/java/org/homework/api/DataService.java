@@ -13,6 +13,6 @@ public interface DataService {
 
     // Работа с пользователями
     void registerUser(Long telegramId, String username, String firstName);
+
     List<BotUser> getRegisteredUsers();
 }
-

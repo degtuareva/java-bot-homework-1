@@ -44,7 +44,6 @@ public class DIContainer {
                     registeredImplementations.put(intf, clazz);
                 }
             }
-
             if (interfaces.length == 0) {
                 // Если у класса нет интерфейсов, регистрируем его сам в себя
                 registeredImplementations.put(clazz, clazz);
@@ -117,5 +116,4 @@ public class DIContainer {
             return false;
         }
     }
-
 }

@@ -1,7 +1,6 @@
 package org.homework.bot;
 
 import org.homework.api.CommandService;
-import org.homework.api.DataService;
 import org.homework.config.BotConfig;
 import org.homework.di.annotations.Register;
 import org.homework.di.annotations.Resolve;
@@ -15,8 +14,6 @@ public class Bot extends TelegramLongPollingBot {
 
     @Resolve
     private CommandService commandService;
-
-     // ← Этого не хватало
 
     @Resolve
     private Logger logger;

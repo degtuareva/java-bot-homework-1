@@ -15,6 +15,7 @@
 ```java
 public interface CommandService {
     SendMessage getHeroes(String chatId);
+
     SendMessage getHelp(String chatId);
 }
 ```
