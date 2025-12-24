@@ -50,6 +50,55 @@ public class CharacterData {
         this.url = url;
         this.created = created;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public Origin getOrigin() {
+        return origin;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public List<String> getEpisode() {
+        return episode;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getCreated() {
+        return created;
+    }
+
     public static class Origin {
         private final String name;
         private final String url;
