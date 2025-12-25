@@ -6,6 +6,7 @@ import org.homework.di.annotations.Register;
 import org.homework.di.annotations.Resolve;
 import org.homework.logger.Logger;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
@@ -85,6 +86,16 @@ public class Bot extends TelegramLongPollingBot {
 
                 } else if (text.equalsIgnoreCase("/topic")) {
                     execute(commandService.getTopic(chatId));
+
+                } else if (text.toLowerCase().startsWith("/ask_java")) {
+                    String question = text.replaceFirst("(?i)/ask_java", "").trim();
+                    if (question.isEmpty()) {
+                        execute(new SendMessage(chatId,
+                                "Напиши так:/ask_java свой вопрос по Java"));
+                    } else {
+                        execute(commandService.askJava(chatId, question));
+
+                    }
 
                     // ----- ШПАРГАЛКИ -----
                 } else if (text.equalsIgnoreCase("/java_oop")) {

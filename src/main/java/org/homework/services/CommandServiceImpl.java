@@ -1,5 +1,6 @@
 package org.homework.services;
 
+import org.homework.api.AiService;
 import org.homework.api.CommandService;
 import org.homework.api.DataService;
 import org.homework.di.annotations.Register;
@@ -21,6 +22,9 @@ import java.util.Random;
 public class CommandServiceImpl implements CommandService {
 
     @Resolve
+    private AiService aiService;
+
+    @Resolve
     private DataService dataService;
 
     @Resolve
@@ -34,6 +38,20 @@ public class CommandServiceImpl implements CommandService {
 
     private static final List<String> QUIZ_TOPICS =
             List.of("oop", "collections", "stream", "exceptions", "solid", "oop_principles");
+    @Override
+    public SendMessage askJava(String chatId, String question) {
+        String answer = aiService.askJavaAssistant(question);
+
+        String text = """
+            Твой вопрос:
+            %s
+
+            Ответ ассистента:
+            %s
+            """.formatted(question, answer);
+
+        return new SendMessage(chatId, text);
+    }
 
     // ЛОКАЛЬНОЕ хранилище пользователей (для интерфейса CommandService),
     // но getHeroes использует DataService.getRegisteredUsers()
@@ -109,6 +127,7 @@ public class CommandServiceImpl implements CommandService {
                 /start - приветствие
                 /help - это сообщение
                 /topic - список тем
+                /ask_java - твой вопрос по Java
                 /java_oop - шпаргалка по ООП
                 /java_collection - шпаргалка по коллекциям
                 /getHeroes - список зарегистрированных пользователей
@@ -541,4 +560,5 @@ public class CommandServiceImpl implements CommandService {
                 """;
         return new SendMessage(chatId, text);
     }
+
 }

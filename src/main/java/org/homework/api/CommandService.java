@@ -57,4 +57,7 @@ public interface CommandService {
 
     // Неизвестная команда
     SendMessage getUnknownCommand(String chatId);
+
+    SendMessage askJava(String chatId, String question);
+
 }
