@@ -28,4 +28,12 @@ public class BotConfig {
     public static String getBotToken() {
         return props.getProperty("telegram.bot.token");
     }
+
+    public static String getOpenAiApiKey() {
+        return props.getProperty("openai.api.key");
+    }
+
+    public static String getOpenAiModel() {
+        return props.getProperty("openai.model", "gpt-4o-mini");
+    }
 }

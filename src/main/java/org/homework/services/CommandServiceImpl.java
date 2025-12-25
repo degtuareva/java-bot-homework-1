@@ -38,6 +38,7 @@ public class CommandServiceImpl implements CommandService {
 
     private static final List<String> QUIZ_TOPICS =
             List.of("oop", "collections", "stream", "exceptions", "solid", "oop_principles");
+
     @Override
     public SendMessage askJava(String chatId, String question) {
         String answer = aiService.askJavaAssistant(question);
@@ -52,6 +53,7 @@ public class CommandServiceImpl implements CommandService {
 
         return new SendMessage(chatId, text);
     }
+
 
     // ЛОКАЛЬНОЕ хранилище пользователей (для интерфейса CommandService),
     // но getHeroes использует DataService.getRegisteredUsers()
