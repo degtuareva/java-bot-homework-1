@@ -24,19 +24,20 @@ public class OpenAiWebLlMAgent implements WebLlMAgent {
                 .apiKey(BotConfig.getOpenAiApiKey())
                 .build();
         this.model = BotConfig.getOpenAiModel();
+
     }
 
     @Override
     public String answerWithLlm(String question) {
         String systemPrompt = """
-            Ты — преподаватель Java.
-            Отвечай по-русски, простыми словами.
-            Структура ответа:
-            1) Короткое определение (1–2 предложения).
-            2) 3–5 основных пунктов по теме (списком).
-            3) Очень короткий пример кода на Java, если уместно.
-            Не пиши ничего лишнего, ориентируйся на начинающего.
-            """;
+                Ты — преподаватель Java.
+                Отвечай по-русски, простыми словами.
+                Структура ответа:
+                1) Короткое определение (1–2 предложения).
+                2) 3–5 основных пунктов по теме (списком).
+                3) Очень короткий пример кода на Java, если уместно.
+                Не пиши ничего лишнего, ориентируйся на начинающего.
+                """;
 
         try {
             ChatCompletionCreateParams params = ChatCompletionCreateParams.builder()
@@ -56,7 +57,7 @@ public class OpenAiWebLlMAgent implements WebLlMAgent {
 // content() -> Optional<String>
             java.util.Optional<String> contentOpt = message.content();
             String text = contentOpt.orElse("Пустой ответ от модели.");
-
+            logger.info("Ответ от  OpenAI: " + text);
             return text;
 
 
