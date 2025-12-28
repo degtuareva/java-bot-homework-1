@@ -96,6 +96,7 @@ public class Bot extends TelegramLongPollingBot {
                         execute(commandService.askJava(chatId, question));
 
                     }
+                    //???
 
                     // ----- ШПАРГАЛКИ -----
                 } else if (text.equalsIgnoreCase("/java_oop")) {
